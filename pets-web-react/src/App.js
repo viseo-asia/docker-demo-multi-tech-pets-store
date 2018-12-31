@@ -8,7 +8,8 @@ class App extends Component {
     { type: "dogs", name: "Dogs", message: "" },
     { type: "rabbits", name: "Rabbits", message: "" },
     { type: "hamsters", name: "Hamsters", message: "" },
-    { type: "parrots", name: "Parrots", message: "" }
+    { type: "parrots", name: "Parrots", message: "" },
+    { type: "turtles", name: "Turtles", message: "" }
   ] };
 
   refresh() {

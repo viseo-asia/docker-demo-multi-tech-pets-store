@@ -22,6 +22,7 @@ The software stack is composed of
     * `pets-hamsters`: Java (with Springboot) 
     * `pets-rabbits`: C# (using a Windows container)
     * `pets-parrots`: PHP (with Silex)
+    * `pets-turtles`: Golang (with Gin)
 
 ## Requirements
 
