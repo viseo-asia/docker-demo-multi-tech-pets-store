@@ -1,12 +1,13 @@
 # BUILD
 FROM node:10-alpine as builder
 
-COPY . /opt/app/
+RUN apk add --no-cache bash git python perl alpine-sdk
 
 WORKDIR /opt/app
 
-RUN apk add --no-cache bash git python perl alpine-sdk && \
-    npm install && \
+COPY . /opt/app/
+
+RUN npm install && \
     npm run build
 
 # RUN
