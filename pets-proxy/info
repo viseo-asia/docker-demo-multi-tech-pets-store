@@ -1,0 +1,4 @@
+name=pets-proxy
+version=1
+volumes=
+type=other

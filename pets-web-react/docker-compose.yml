@@ -1,0 +1,16 @@
+version: "3.7"
+
+services:
+  server:
+    build: .
+    image: ${DOCKER_REGISTRY}/${ORGANIZATION}/${SERVICE}:${SERVICE_VERSION}
+    ports:
+      - 80
+    networks:
+      pets-network:
+        aliases:
+         - pets-web-react
+
+networks:
+  pets-network:
+    external: true

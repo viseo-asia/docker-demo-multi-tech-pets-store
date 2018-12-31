@@ -1,0 +1,14 @@
+C:\Users\Didier\Documents\Workspace\viseo-repo\services\pets\pets-rabbits\bin\Debug\netcoreapp2.1\PetsRabbits.deps.json
+C:\Users\Didier\Documents\Workspace\viseo-repo\services\pets\pets-rabbits\bin\Debug\netcoreapp2.1\PetsRabbits.runtimeconfig.json
+C:\Users\Didier\Documents\Workspace\viseo-repo\services\pets\pets-rabbits\bin\Debug\netcoreapp2.1\PetsRabbits.runtimeconfig.dev.json
+C:\Users\Didier\Documents\Workspace\viseo-repo\services\pets\pets-rabbits\bin\Debug\netcoreapp2.1\PetsRabbits.dll
+C:\Users\Didier\Documents\Workspace\viseo-repo\services\pets\pets-rabbits\bin\Debug\netcoreapp2.1\PetsRabbits.pdb
+C:\Users\Didier\Documents\Workspace\viseo-repo\services\pets\pets-rabbits\obj\Debug\netcoreapp2.1\PetsRabbits.csprojAssemblyReference.cache
+C:\Users\Didier\Documents\Workspace\viseo-repo\services\pets\pets-rabbits\obj\Debug\netcoreapp2.1\PetsRabbits.csproj.CoreCompileInputs.cache
+C:\Users\Didier\Documents\Workspace\viseo-repo\services\pets\pets-rabbits\obj\Debug\netcoreapp2.1\PetsRabbits.RazorAssemblyInfo.cache
+C:\Users\Didier\Documents\Workspace\viseo-repo\services\pets\pets-rabbits\obj\Debug\netcoreapp2.1\PetsRabbits.RazorAssemblyInfo.cs
+C:\Users\Didier\Documents\Workspace\viseo-repo\services\pets\pets-rabbits\obj\Debug\netcoreapp2.1\PetsRabbits.AssemblyInfoInputs.cache
+C:\Users\Didier\Documents\Workspace\viseo-repo\services\pets\pets-rabbits\obj\Debug\netcoreapp2.1\PetsRabbits.AssemblyInfo.cs
+C:\Users\Didier\Documents\Workspace\viseo-repo\services\pets\pets-rabbits\obj\Debug\netcoreapp2.1\PetsRabbits.RazorTargetAssemblyInfo.cache
+C:\Users\Didier\Documents\Workspace\viseo-repo\services\pets\pets-rabbits\obj\Debug\netcoreapp2.1\PetsRabbits.dll
+C:\Users\Didier\Documents\Workspace\viseo-repo\services\pets\pets-rabbits\obj\Debug\netcoreapp2.1\PetsRabbits.pdb

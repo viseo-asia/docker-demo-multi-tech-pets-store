@@ -1,0 +1,4 @@
+name=pets-web-angular
+version=1
+volumes=
+type=nodejs-10
