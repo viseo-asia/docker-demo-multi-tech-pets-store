@@ -3,7 +3,7 @@ version: "3.7"
 services:
   server:
     build: .
-    image: ${DOCKER_REGISTRY}/${ORGANIZATION}/${SERVICE}:${SERVICE_VERSION}
+    image: ${DOCKER_REGISTRY}/${REGISTRY_NAMESPACE}/${SERVICE}:${SERVICE_VERSION}
     ports:
       - 80
     deploy:
@@ -11,7 +11,7 @@ services:
     networks:
       pets-network:
         aliases:
-         - pets-cats
+          - pets-cats
 
 networks:
   pets-network:

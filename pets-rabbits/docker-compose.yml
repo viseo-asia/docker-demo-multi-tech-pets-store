@@ -1,4 +1,4 @@
-version: '3'
+version: "3"
 
 services:
   server:
@@ -9,10 +9,9 @@ services:
     deploy:
       replicas: 2
       placement:
-        constraints: 
+        constraints:
           - node.labels.os == windows
     networks:
       pets-network:
         aliases:
-         - pets-rabbits
-  
+          - pets-rabbits
