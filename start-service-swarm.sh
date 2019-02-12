@@ -56,13 +56,16 @@ done
 export SERVICE_VERSION=$(cat info | grep version= | cut -f2 -d"=")
 
 
-# Docker Image and Deploy
+# Build Image
+docker-compose build
+docker-compose push
+
+
+# Deploy
 if [ -f "docker-compose-${STAGE}.yml" ]; then
-  COMPOSE_FILE="docker-compose-${STAGE}.yml"
+  COMPOSE_FILE_DEPLOY="docker-compose-${STAGE}.yml"
 else
-  COMPOSE_FILE="docker-compose.yml"
+  COMPOSE_FILE_DEPLOY="docker-compose.yml"
 fi
-echo "Compose File: ${COMPOSE_FILE}"
-docker-compose -f ${COMPOSE_FILE} build
-docker-compose -f ${COMPOSE_FILE} push
-docker stack deploy --compose-file ${COMPOSE_FILE} ${SERVICE}
+echo "Deployment Compose File: ${COMPOSE_FILE_DEPLOY}"
+docker stack deploy --compose-file ${COMPOSE_FILE_DEPLOY} ${SERVICE}

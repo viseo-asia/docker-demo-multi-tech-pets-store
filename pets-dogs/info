@@ -2,3 +2,4 @@ name=pets-dogs
 version=3
 volumes=
 type=python-3
+networks=pets-network

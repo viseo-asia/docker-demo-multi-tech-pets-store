@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ${SERVICE}
+  labels:
+    app: ${SERVICE}
+  annotations:
+    monitoring: "true"
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ${SERVICE}
+  template:
+    metadata:
+      labels:
+        app: ${SERVICE}
+    spec:
+      hostname: pets-dogs
+      subdomain: pets-network
+      containers:
+        - image: ${DOCKER_REGISTRY}/${REGISTRY_NAMESPACE}/${SERVICE}:${SERVICE_VERSION}
+          name: ${SERVICE}
+          ports:
+            - containerPort: 80

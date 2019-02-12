@@ -1,0 +1,38 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: pets-network
+spec:
+  selector:
+    name: pets
+  clusterIP: None
+  ports:
+    - name: pets # Actually, no port is needed.
+      port: 1234
+      targetPort: 1234
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ${SERVICE}
+  labels:
+    app: ${SERVICE}
+  annotations:
+    monitoring: "true"
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ${SERVICE}
+  template:
+    metadata:
+      labels:
+        app: ${SERVICE}
+    spec:
+      hostname: pets-web-angular
+      subdomain: pets-network
+      containers:
+        - image: ${DOCKER_REGISTRY}/${REGISTRY_NAMESPACE}/${SERVICE}:${SERVICE_VERSION}
+          name: ${SERVICE}
+          ports:
+            - containerPort: 80

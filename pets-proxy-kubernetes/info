@@ -1,5 +1,5 @@
-name=pets-web-angular
+name=pets-proxy-kubernetes
 version=1
 volumes=
-type=nodejs-10
+type=other
 networks=pets-network

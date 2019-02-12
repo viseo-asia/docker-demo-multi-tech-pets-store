@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: ${SERVICE}
+  labels:
+    name: pets
+spec:
+  hostname: pets-web-react
+  subdomain: pets-network
+  containers:
+    - image: ${DOCKER_REGISTRY}/${REGISTRY_NAMESPACE}/${SERVICE}:${SERVICE_VERSION}
+      name: ${SERVICE}

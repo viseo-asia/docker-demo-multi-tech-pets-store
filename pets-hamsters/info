@@ -2,3 +2,4 @@ name=pets-hamsters
 version=1
 volumes=
 type=java-8
+networks=pets-network

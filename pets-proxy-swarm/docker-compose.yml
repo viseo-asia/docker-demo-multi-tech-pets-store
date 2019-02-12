@@ -13,7 +13,7 @@ services:
     networks:
       pets-network:
         aliases:
-          - pets-proxy
+          - pets-proxy-swarm
 
 networks:
   pets-network:

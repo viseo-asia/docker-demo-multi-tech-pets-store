@@ -1,0 +1,67 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: pets-network
+spec:
+  selector:
+    name: pets
+  clusterIP: None
+  ports:
+    - name: pets # Actually, no port is needed.
+      port: 1234
+      targetPort: 1234
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ${SERVICE}
+  labels:
+    app: ${SERVICE}
+  annotations:
+    monitoring: "true"
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ${SERVICE}
+  template:
+    metadata:
+      labels:
+        app: ${SERVICE}
+    spec:
+      hostname: pets-proxy
+      subdomain: pets-network
+      containers:
+        - image: ${DOCKER_REGISTRY}/${REGISTRY_NAMESPACE}/${SERVICE}:${SERVICE_VERSION}
+          name: ${SERVICE}
+          ports:
+            - containerPort: 90
+            - containerPort: 91
+            - containerPort: 92
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: ${SERVICE}
+  name: ${SERVICE}
+spec:
+  ports:
+    - name: pets-vue
+      nodePort: 30090
+      port: 90
+      protocol: TCP
+      targetPort: 90
+    - name: pets-react
+      nodePort: 30091
+      port: 91
+      protocol: TCP
+      targetPort: 91
+    - name: pets-angular
+      nodePort: 30092
+      port: 92
+      protocol: TCP
+      targetPort: 92
+  selector:
+    app: ${SERVICE}
+  type: NodePort
