@@ -1,10 +1,11 @@
 <div class="container" id="app">
   <h1>Pet Shop</h1>
 
-  <button (click)="refresh()" type="button" class="btn btn-secondary">Refresh</button>
+  <button (click)="refresh()" type="button" class="btn btn-secondary">
+    Refresh
+  </button>
 
   <div class="row">
-
     <div *ngFor="let petType of petTypes" class="col-sm-6 col-md-4 col-lg-3">
       <div class="card card-pet">
         <div class="card-body">
@@ -13,6 +14,38 @@
         </div>
       </div>
     </div>
+  </div>
 
+  <h6>Comments (From: {{ comments.origin }})</h6>
+
+  <div class="input-group mb-3">
+    <input
+      [(ngModel)]="commentInput"
+      type="text"
+      class="form-control"
+      placeholder="New comment"
+      aria-label="New comment"
+      aria-describedby="button-addon2"
+    />
+    <div class="input-group-append">
+      <button
+        (click)="postComment()"
+        class="btn btn-outline-secondary"
+        type="button"
+        id="button-addon2"
+      >
+        Send
+      </button>
+    </div>
+  </div>
+
+  <div
+    class="alert alert-secondary"
+    role="alert"
+    *ngFor="let comment of comments.items"
+  >
+    {{ comment.text }}
+    <br />
+    <small>{{ displayDate(comment.date) }}</small>
   </div>
 </div>
