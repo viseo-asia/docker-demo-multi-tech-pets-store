@@ -47,8 +47,8 @@ export SERVICE_VERSION=$(cat info | grep version= | cut -f2 -d"=")
 
 
 # Build Image
-# docker-compose build
-# docker-compose push
+docker-compose build
+docker-compose push
 
 
 # Deploy

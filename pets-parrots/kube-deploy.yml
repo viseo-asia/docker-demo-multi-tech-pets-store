@@ -16,10 +16,21 @@ spec:
       labels:
         app: ${SERVICE}
     spec:
-      hostname: pets-parrots
-      subdomain: pets-network
       containers:
         - image: ${DOCKER_REGISTRY}/${REGISTRY_NAMESPACE}/${SERVICE}:${SERVICE_VERSION}
           name: ${SERVICE}
           ports:
             - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: ${SERVICE}
+spec:
+  ports:
+    - name: pod-port
+      protocol: "TCP"
+      port: 80
+      targetPort: 80
+  selector:
+    app: ${SERVICE}
