@@ -14,11 +14,11 @@ function startService {
 
 startService pets-proxy-swarm
 startService pets-web-vue
-# startService pets-web-angular
-# startService pets-web-react
-# startService pets-cats
+startService pets-web-angular
+startService pets-web-react
+startService pets-cats
 startService pets-dogs
-# startService pets-hamsters
-# startService pets-parrots
-# startService pets-turtles
-# startService pets-comments
+startService pets-hamsters
+startService pets-parrots
+startService pets-turtles
+startService pets-comments
