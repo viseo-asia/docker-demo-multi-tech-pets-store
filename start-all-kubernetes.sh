@@ -23,10 +23,10 @@ function startService {
 
 startService pets-proxy-kubernetes
 startService pets-web-vue
-# startService pets-web-angular
-# startService pets-web-react
+startService pets-web-angular
+startService pets-web-react
 startService pets-cats
-# startService pets-dogs
-# startService pets-hamsters
-# startService pets-parrots
-# startService pets-turtles
+startService pets-dogs
+startService pets-hamsters
+startService pets-parrots
+startService pets-turtles
