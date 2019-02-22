@@ -17,3 +17,5 @@ FROM nginx:1-alpine as production
 COPY --from=builder /opt/app/dist/pets-web-angular /var/www/html
 
 COPY nginx/default.conf /etc/nginx/conf.d/
+
+EXPOSE 80

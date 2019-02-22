@@ -2,3 +2,4 @@ name=pets-parrots
 version=1
 volumes=
 type=php-7
+networks=pets-network

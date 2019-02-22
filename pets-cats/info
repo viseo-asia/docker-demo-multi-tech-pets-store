@@ -2,3 +2,4 @@ name=pets-cats
 version=2
 volumes=
 type=nodejs-10
+networks=pets-network

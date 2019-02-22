@@ -2,3 +2,4 @@ name=pets-web-vue
 version=1
 volumes=
 type=nodejs-10
+networks=pets-network

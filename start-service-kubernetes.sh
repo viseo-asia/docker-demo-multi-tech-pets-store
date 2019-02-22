@@ -42,16 +42,6 @@ for VOLUME in "${ADDR[@]}"; do
 done
 
 
-# Networks
-NETWORK_INFO=$(cat info | grep networks= | cut -f2 -d"=")
-IFS=';' read -ra ADDR <<< "${NETWORK_INFO}"
-for NETWORK in "${ADDR[@]}"; do
-  if [ $(docker network ls | grep -c ${NETWORK}) -eq 0 ]; then
-    docker network create --driver overlay ${NETWORK}
-  fi
-done
-
-
 # Version
 export SERVICE_VERSION=$(cat info | grep version= | cut -f2 -d"=")
 
@@ -62,10 +52,21 @@ docker-compose push
 
 
 # Deploy
-if [ -f "docker-compose-${STAGE}.yml" ]; then
-  COMPOSE_FILE_DEPLOY="docker-compose-${STAGE}.yml"
+if [ -f "kube-deploy-${STAGE}.yml" ]; then
+  KUBE_FILE_DEPLOY="kube-deploy-${STAGE}.yml"
 else
-  COMPOSE_FILE_DEPLOY="docker-compose.yml"
+  KUBE_FILE_DEPLOY="kube-deploy.yml"
 fi
-echo "Deployment Compose File: ${COMPOSE_FILE_DEPLOY}"
-docker stack deploy --compose-file ${COMPOSE_FILE_DEPLOY} ${SERVICE}
+echo "Deployment Kube File: ${KUBE_FILE_DEPLOY}"
+
+VOLUMES_BASE_DIR_ESCAPED=${VOLUMES_BASE_DIR//\//\\\/}
+cat ${KUBE_FILE_DEPLOY} \
+  | sed "s/\${SERVICE}/${SERVICE}/g" \
+  | sed "s/\${SERVICE_VERSION}/${SERVICE_VERSION}/g" \
+  | sed "s/\${DOCKER_REGISTRY}/${DOCKER_REGISTRY}/g" \
+  | sed "s/\${REGISTRY_NAMESPACE}/${REGISTRY_NAMESPACE}/g" \
+  | sed "s/\${VOLUMES_BASE_DIR}/${VOLUMES_BASE_DIR_ESCAPED}/g" \
+  | sed "s/\${STAGE}/${STAGE}/g" > .tmp_${KUBE_FILE_DEPLOY}
+
+kubectl apply -f .tmp_${KUBE_FILE_DEPLOY}
+rm -f .tmp_${KUBE_FILE_DEPLOY}
