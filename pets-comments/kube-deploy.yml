@@ -17,6 +17,14 @@ spec:
           image: ${DOCKER_REGISTRY}/${REGISTRY_NAMESPACE}/${SERVICE}:${SERVICE_VERSION}
           ports:
             - containerPort: 80
+          volumeMounts:
+            - mountPath: /opt/data
+              name: comments-volume
+      volumes:
+        - name: comments-volume
+          hostPath:
+            path: ${VOLUMES_BASE_DIR}/pets-comments
+            type: Directory
 ---
 apiVersion: v1
 kind: Service
