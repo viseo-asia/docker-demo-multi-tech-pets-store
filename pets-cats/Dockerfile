@@ -7,7 +7,8 @@ WORKDIR /opt/app
 
 COPY . .
 
-RUN npm install
+RUN npm install && \ 
+    npm test
 
 
 # RUN
